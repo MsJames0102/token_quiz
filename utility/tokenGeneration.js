@@ -4,7 +4,7 @@ function generate() {
     return crypto.randomInt(0, 100000)
 }
 
-module.exports = generate
+module.exports = generate;
 
 
 

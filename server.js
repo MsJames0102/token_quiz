@@ -4,7 +4,7 @@ const app = express()
 
 const PORT = 3543
 
-
+app.use(cors()) // add cors
 
 app.use('/api/auth', require('./routes/jwtAuth'))
 

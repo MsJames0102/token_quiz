@@ -1,14 +1,15 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Unauthorized from './Components/Unauthorized'
 import Authorized from './Components/Authorized'
 
 function App() {
 
   const [auth, setAuth] = useState(false)
+// add use Effect hook
 
   const getAuth = async () => {
     try {
-      const data = await fetch('http://localhost:3543/api/')
+      const data = await fetch('http://localhost:3543/api/auth') // control url to serve auth
       const token = await data.json()
       localStorage.setItem('xAuthToken', token);
       if(localStorage.getItem('xAuthToken')) {
@@ -20,6 +21,7 @@ function App() {
       console.error(error.message)
     }
   }
+
 
   const logOut = () => {
     localStorage.removeItem('xAuthToken')
